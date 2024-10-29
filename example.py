@@ -134,4 +134,6 @@ while (result := client.executions.get(execution.id)).status not in ['succeeded'
 if result.status == "succeeded":
     print(result.output)
 else:
-    raise Exception(result.error)
+    # Improved error handling
+    print("Execution failed with error:", result.error)
+    raise Exception("Task execution failed.")
